@@ -1,4 +1,4 @@
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 import ImageWithBasePath from "../../../../../core/imageWithBasePath";
 import { CitiesData } from "../../../../../core/json/citiesData";
 import Datatable from "../../../../../core/common/dataTable";
