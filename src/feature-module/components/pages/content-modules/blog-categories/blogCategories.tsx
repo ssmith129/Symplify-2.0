@@ -1,4 +1,4 @@
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 import Datatable from "../../../../../core/common/dataTable";
 import { BlogCategoriesData } from "../../../../../core/json/blogCategoriesData";
 import Modals from "./modals/modals";
