@@ -1,4 +1,4 @@
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 import Datatable from "../../../../../core/common/dataTable";
 import { TestimonialsData } from "../../../../../core/json/testimonialsData";
 import ImageWithBasePath from "../../../../../core/imageWithBasePath";
