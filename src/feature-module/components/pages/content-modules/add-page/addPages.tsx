@@ -1,4 +1,4 @@
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 import { all_routes } from "../../../../routes/all_routes";
 import { useState } from "react";
 import TagInput from "../../../../../core/common/Taginput";
