@@ -1,5 +1,5 @@
 import { DatePicker, TimePicker } from "antd";
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 
 import Footer from "../../../../../../core/common/footer/footer";
 import EventCalendar from "../../../../../../core/common/event-calendar/eventCalendar";
