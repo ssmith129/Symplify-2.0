@@ -1,4 +1,4 @@
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 import "slick-carousel/slick/slick.css";
 import DefaultEditor from "react-simple-wysiwyg";
 import { DatePicker } from "antd";
