@@ -1,4 +1,4 @@
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 
 import Lightbox from "yet-another-react-lightbox";
 import media15 from "/assets/img/media/media-15.jpg";
