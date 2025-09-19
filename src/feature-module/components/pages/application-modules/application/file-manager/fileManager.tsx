@@ -1,4 +1,4 @@
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 import { useState } from "react";
 import ReactApexChart from "react-apexcharts";
 import ImageWithBasePath from "../../../../../../core/imageWithBasePath";
