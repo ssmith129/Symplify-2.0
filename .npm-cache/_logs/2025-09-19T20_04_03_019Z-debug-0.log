@@ -1,0 +1,246 @@
+0 verbose cli /usr/local/bin/node /usr/local/bin/npm
+1 info using npm@10.9.2
+2 info using node@v22.16.0
+3 silly config load:file:/usr/local/lib/node_modules/npm/npmrc
+4 silly config load:file:/app/code/.npmrc
+5 silly config load:file:/root/.npmrc
+6 silly config load:file:/usr/local/etc/npmrc
+7 verbose title npm install
+8 verbose argv "install" "--cache" "./.npm-cache"
+9 verbose logfile logs-max:10 dir:/app/code/.npm-cache/_logs/2025-09-19T20_04_03_019Z-
+10 verbose logfile /app/code/.npm-cache/_logs/2025-09-19T20_04_03_019Z-debug-0.log
+11 silly logfile done cleaning log files
+12 silly packumentCache heap:2103967744 maxSize:525991936 maxEntrySize:262995968
+13 silly idealTree buildDeps
+14 warn EBADENGINE Unsupported engine {
+14 warn EBADENGINE   package: 'template@0.0.0',
+14 warn EBADENGINE   required: { node: '>=20.15.1 <21' },
+14 warn EBADENGINE   current: { node: 'v22.16.0', npm: '10.9.2' }
+14 warn EBADENGINE }
+15 silly reify moves {}
+16 verbose reify failed optional dependency /app/code/node_modules/fsevents
+17 silly reify mark deleted [ '/app/code/node_modules/fsevents' ]
+18 verbose reify failed optional dependency /app/code/node_modules/@rollup/rollup-win32-x64-msvc
+19 silly reify mark deleted [ '/app/code/node_modules/@rollup/rollup-win32-x64-msvc' ]
+20 verbose reify failed optional dependency /app/code/node_modules/@rollup/rollup-win32-ia32-msvc
+21 silly reify mark deleted [ '/app/code/node_modules/@rollup/rollup-win32-ia32-msvc' ]
+22 verbose reify failed optional dependency /app/code/node_modules/@rollup/rollup-win32-arm64-msvc
+23 silly reify mark deleted [ '/app/code/node_modules/@rollup/rollup-win32-arm64-msvc' ]
+24 verbose reify failed optional dependency /app/code/node_modules/@rollup/rollup-linux-s390x-gnu
+25 silly reify mark deleted [ '/app/code/node_modules/@rollup/rollup-linux-s390x-gnu' ]
+26 verbose reify failed optional dependency /app/code/node_modules/@rollup/rollup-linux-riscv64-musl
+27 silly reify mark deleted [ '/app/code/node_modules/@rollup/rollup-linux-riscv64-musl' ]
+28 verbose reify failed optional dependency /app/code/node_modules/@rollup/rollup-linux-riscv64-gnu
+29 silly reify mark deleted [ '/app/code/node_modules/@rollup/rollup-linux-riscv64-gnu' ]
+30 verbose reify failed optional dependency /app/code/node_modules/@rollup/rollup-linux-powerpc64le-gnu
+31 silly reify mark deleted [ '/app/code/node_modules/@rollup/rollup-linux-powerpc64le-gnu' ]
+32 verbose reify failed optional dependency /app/code/node_modules/@rollup/rollup-linux-loongarch64-gnu
+33 silly reify mark deleted [ '/app/code/node_modules/@rollup/rollup-linux-loongarch64-gnu' ]
+34 verbose reify failed optional dependency /app/code/node_modules/@rollup/rollup-linux-arm64-musl
+35 silly reify mark deleted [ '/app/code/node_modules/@rollup/rollup-linux-arm64-musl' ]
+36 verbose reify failed optional dependency /app/code/node_modules/@rollup/rollup-linux-arm64-gnu
+37 silly reify mark deleted [ '/app/code/node_modules/@rollup/rollup-linux-arm64-gnu' ]
+38 verbose reify failed optional dependency /app/code/node_modules/@rollup/rollup-linux-arm-musleabihf
+39 silly reify mark deleted [ '/app/code/node_modules/@rollup/rollup-linux-arm-musleabihf' ]
+40 verbose reify failed optional dependency /app/code/node_modules/@rollup/rollup-linux-arm-gnueabihf
+41 silly reify mark deleted [ '/app/code/node_modules/@rollup/rollup-linux-arm-gnueabihf' ]
+42 verbose reify failed optional dependency /app/code/node_modules/@rollup/rollup-freebsd-x64
+43 silly reify mark deleted [ '/app/code/node_modules/@rollup/rollup-freebsd-x64' ]
+44 verbose reify failed optional dependency /app/code/node_modules/@rollup/rollup-freebsd-arm64
+45 silly reify mark deleted [ '/app/code/node_modules/@rollup/rollup-freebsd-arm64' ]
+46 verbose reify failed optional dependency /app/code/node_modules/@rollup/rollup-darwin-x64
+47 silly reify mark deleted [ '/app/code/node_modules/@rollup/rollup-darwin-x64' ]
+48 verbose reify failed optional dependency /app/code/node_modules/@rollup/rollup-darwin-arm64
+49 silly reify mark deleted [ '/app/code/node_modules/@rollup/rollup-darwin-arm64' ]
+50 verbose reify failed optional dependency /app/code/node_modules/@rollup/rollup-android-arm64
+51 silly reify mark deleted [ '/app/code/node_modules/@rollup/rollup-android-arm64' ]
+52 verbose reify failed optional dependency /app/code/node_modules/@rollup/rollup-android-arm-eabi
+53 silly reify mark deleted [ '/app/code/node_modules/@rollup/rollup-android-arm-eabi' ]
+54 verbose reify failed optional dependency /app/code/node_modules/@parcel/watcher-win32-x64
+55 silly reify mark deleted [ '/app/code/node_modules/@parcel/watcher-win32-x64' ]
+56 verbose reify failed optional dependency /app/code/node_modules/@parcel/watcher-win32-ia32
+57 silly reify mark deleted [ '/app/code/node_modules/@parcel/watcher-win32-ia32' ]
+58 verbose reify failed optional dependency /app/code/node_modules/@parcel/watcher-win32-arm64
+59 silly reify mark deleted [ '/app/code/node_modules/@parcel/watcher-win32-arm64' ]
+60 verbose reify failed optional dependency /app/code/node_modules/@parcel/watcher-linux-arm64-musl
+61 silly reify mark deleted [ '/app/code/node_modules/@parcel/watcher-linux-arm64-musl' ]
+62 verbose reify failed optional dependency /app/code/node_modules/@parcel/watcher-linux-arm64-glibc
+63 silly reify mark deleted [ '/app/code/node_modules/@parcel/watcher-linux-arm64-glibc' ]
+64 verbose reify failed optional dependency /app/code/node_modules/@parcel/watcher-linux-arm-musl
+65 silly reify mark deleted [ '/app/code/node_modules/@parcel/watcher-linux-arm-musl' ]
+66 verbose reify failed optional dependency /app/code/node_modules/@parcel/watcher-linux-arm-glibc
+67 silly reify mark deleted [ '/app/code/node_modules/@parcel/watcher-linux-arm-glibc' ]
+68 verbose reify failed optional dependency /app/code/node_modules/@parcel/watcher-freebsd-x64
+69 silly reify mark deleted [ '/app/code/node_modules/@parcel/watcher-freebsd-x64' ]
+70 verbose reify failed optional dependency /app/code/node_modules/@parcel/watcher-darwin-x64
+71 silly reify mark deleted [ '/app/code/node_modules/@parcel/watcher-darwin-x64' ]
+72 verbose reify failed optional dependency /app/code/node_modules/@parcel/watcher-darwin-arm64
+73 silly reify mark deleted [ '/app/code/node_modules/@parcel/watcher-darwin-arm64' ]
+74 verbose reify failed optional dependency /app/code/node_modules/@parcel/watcher-android-arm64
+75 silly reify mark deleted [ '/app/code/node_modules/@parcel/watcher-android-arm64' ]
+76 verbose reify failed optional dependency /app/code/node_modules/@img/sharp-win32-x64
+77 silly reify mark deleted [ '/app/code/node_modules/@img/sharp-win32-x64' ]
+78 verbose reify failed optional dependency /app/code/node_modules/@img/sharp-win32-ia32
+79 silly reify mark deleted [ '/app/code/node_modules/@img/sharp-win32-ia32' ]
+80 verbose reify failed optional dependency /app/code/node_modules/@img/sharp-win32-arm64
+81 silly reify mark deleted [ '/app/code/node_modules/@img/sharp-win32-arm64' ]
+82 verbose reify failed optional dependency /app/code/node_modules/@img/sharp-wasm32
+83 silly reify mark deleted [ '/app/code/node_modules/@img/sharp-wasm32' ]
+84 verbose reify failed optional dependency /app/code/node_modules/@emnapi/runtime
+85 silly reify mark deleted [ '/app/code/node_modules/@emnapi/runtime' ]
+86 verbose reify failed optional dependency /app/code/node_modules/@img/sharp-linuxmusl-arm64
+87 silly reify mark deleted [ '/app/code/node_modules/@img/sharp-linuxmusl-arm64' ]
+88 verbose reify failed optional dependency /app/code/node_modules/@img/sharp-linux-s390x
+89 silly reify mark deleted [ '/app/code/node_modules/@img/sharp-linux-s390x' ]
+90 verbose reify failed optional dependency /app/code/node_modules/@img/sharp-linux-ppc64
+91 silly reify mark deleted [ '/app/code/node_modules/@img/sharp-linux-ppc64' ]
+92 verbose reify failed optional dependency /app/code/node_modules/@img/sharp-linux-arm64
+93 silly reify mark deleted [ '/app/code/node_modules/@img/sharp-linux-arm64' ]
+94 verbose reify failed optional dependency /app/code/node_modules/@img/sharp-linux-arm
+95 silly reify mark deleted [ '/app/code/node_modules/@img/sharp-linux-arm' ]
+96 verbose reify failed optional dependency /app/code/node_modules/@img/sharp-libvips-linuxmusl-arm64
+97 silly reify mark deleted [ '/app/code/node_modules/@img/sharp-libvips-linuxmusl-arm64' ]
+98 verbose reify failed optional dependency /app/code/node_modules/@img/sharp-libvips-linux-s390x
+99 silly reify mark deleted [ '/app/code/node_modules/@img/sharp-libvips-linux-s390x' ]
+100 verbose reify failed optional dependency /app/code/node_modules/@img/sharp-libvips-linux-ppc64
+101 silly reify mark deleted [ '/app/code/node_modules/@img/sharp-libvips-linux-ppc64' ]
+102 verbose reify failed optional dependency /app/code/node_modules/@img/sharp-libvips-linux-arm64
+103 silly reify mark deleted [ '/app/code/node_modules/@img/sharp-libvips-linux-arm64' ]
+104 verbose reify failed optional dependency /app/code/node_modules/@img/sharp-libvips-linux-arm
+105 silly reify mark deleted [ '/app/code/node_modules/@img/sharp-libvips-linux-arm' ]
+106 verbose reify failed optional dependency /app/code/node_modules/@img/sharp-libvips-darwin-x64
+107 silly reify mark deleted [ '/app/code/node_modules/@img/sharp-libvips-darwin-x64' ]
+108 verbose reify failed optional dependency /app/code/node_modules/@img/sharp-libvips-darwin-arm64
+109 silly reify mark deleted [ '/app/code/node_modules/@img/sharp-libvips-darwin-arm64' ]
+110 verbose reify failed optional dependency /app/code/node_modules/@img/sharp-darwin-x64
+111 silly reify mark deleted [ '/app/code/node_modules/@img/sharp-darwin-x64' ]
+112 verbose reify failed optional dependency /app/code/node_modules/@img/sharp-darwin-arm64
+113 silly reify mark deleted [ '/app/code/node_modules/@img/sharp-darwin-arm64' ]
+114 verbose reify failed optional dependency /app/code/node_modules/@esbuild/win32-x64
+115 silly reify mark deleted [ '/app/code/node_modules/@esbuild/win32-x64' ]
+116 verbose reify failed optional dependency /app/code/node_modules/@esbuild/win32-ia32
+117 silly reify mark deleted [ '/app/code/node_modules/@esbuild/win32-ia32' ]
+118 verbose reify failed optional dependency /app/code/node_modules/@esbuild/win32-arm64
+119 silly reify mark deleted [ '/app/code/node_modules/@esbuild/win32-arm64' ]
+120 verbose reify failed optional dependency /app/code/node_modules/@esbuild/sunos-x64
+121 silly reify mark deleted [ '/app/code/node_modules/@esbuild/sunos-x64' ]
+122 verbose reify failed optional dependency /app/code/node_modules/@esbuild/openbsd-x64
+123 silly reify mark deleted [ '/app/code/node_modules/@esbuild/openbsd-x64' ]
+124 verbose reify failed optional dependency /app/code/node_modules/@esbuild/openbsd-arm64
+125 silly reify mark deleted [ '/app/code/node_modules/@esbuild/openbsd-arm64' ]
+126 verbose reify failed optional dependency /app/code/node_modules/@esbuild/netbsd-x64
+127 silly reify mark deleted [ '/app/code/node_modules/@esbuild/netbsd-x64' ]
+128 verbose reify failed optional dependency /app/code/node_modules/@esbuild/netbsd-arm64
+129 silly reify mark deleted [ '/app/code/node_modules/@esbuild/netbsd-arm64' ]
+130 verbose reify failed optional dependency /app/code/node_modules/@esbuild/linux-s390x
+131 silly reify mark deleted [ '/app/code/node_modules/@esbuild/linux-s390x' ]
+132 verbose reify failed optional dependency /app/code/node_modules/@esbuild/linux-riscv64
+133 silly reify mark deleted [ '/app/code/node_modules/@esbuild/linux-riscv64' ]
+134 verbose reify failed optional dependency /app/code/node_modules/@esbuild/linux-ppc64
+135 silly reify mark deleted [ '/app/code/node_modules/@esbuild/linux-ppc64' ]
+136 verbose reify failed optional dependency /app/code/node_modules/@esbuild/linux-mips64el
+137 silly reify mark deleted [ '/app/code/node_modules/@esbuild/linux-mips64el' ]
+138 verbose reify failed optional dependency /app/code/node_modules/@esbuild/linux-loong64
+139 silly reify mark deleted [ '/app/code/node_modules/@esbuild/linux-loong64' ]
+140 verbose reify failed optional dependency /app/code/node_modules/@esbuild/linux-ia32
+141 silly reify mark deleted [ '/app/code/node_modules/@esbuild/linux-ia32' ]
+142 verbose reify failed optional dependency /app/code/node_modules/@esbuild/linux-arm64
+143 silly reify mark deleted [ '/app/code/node_modules/@esbuild/linux-arm64' ]
+144 verbose reify failed optional dependency /app/code/node_modules/@esbuild/linux-arm
+145 silly reify mark deleted [ '/app/code/node_modules/@esbuild/linux-arm' ]
+146 verbose reify failed optional dependency /app/code/node_modules/@esbuild/freebsd-x64
+147 silly reify mark deleted [ '/app/code/node_modules/@esbuild/freebsd-x64' ]
+148 verbose reify failed optional dependency /app/code/node_modules/@esbuild/freebsd-arm64
+149 silly reify mark deleted [ '/app/code/node_modules/@esbuild/freebsd-arm64' ]
+150 verbose reify failed optional dependency /app/code/node_modules/@esbuild/darwin-x64
+151 silly reify mark deleted [ '/app/code/node_modules/@esbuild/darwin-x64' ]
+152 verbose reify failed optional dependency /app/code/node_modules/@esbuild/darwin-arm64
+153 silly reify mark deleted [ '/app/code/node_modules/@esbuild/darwin-arm64' ]
+154 verbose reify failed optional dependency /app/code/node_modules/@esbuild/android-x64
+155 silly reify mark deleted [ '/app/code/node_modules/@esbuild/android-x64' ]
+156 verbose reify failed optional dependency /app/code/node_modules/@esbuild/android-arm64
+157 silly reify mark deleted [ '/app/code/node_modules/@esbuild/android-arm64' ]
+158 verbose reify failed optional dependency /app/code/node_modules/@esbuild/android-arm
+159 silly reify mark deleted [ '/app/code/node_modules/@esbuild/android-arm' ]
+160 verbose reify failed optional dependency /app/code/node_modules/@esbuild/aix-ppc64
+161 silly reify mark deleted [ '/app/code/node_modules/@esbuild/aix-ppc64' ]
+162 http cache @emnapi/runtime@https://registry.npmjs.org/@emnapi/runtime/-/runtime-1.4.4.tgz 0ms (cache hit)
+163 silly ADD
+164 silly ADD
+165 silly ADD
+166 silly ADD
+167 silly ADD
+168 silly ADD
+169 silly ADD
+170 silly ADD
+171 silly ADD
+172 silly ADD
+173 silly ADD
+174 silly ADD
+175 silly ADD
+176 silly ADD
+177 silly ADD
+178 silly ADD
+179 silly ADD
+180 silly ADD
+181 silly ADD
+182 silly ADD
+183 silly ADD
+184 silly ADD
+185 silly ADD
+186 silly ADD
+187 silly ADD
+188 silly ADD
+189 silly ADD
+190 silly ADD
+191 silly ADD
+192 silly ADD
+193 silly ADD
+194 silly ADD
+195 silly ADD
+196 silly ADD
+197 silly ADD
+198 silly ADD
+199 silly ADD
+200 silly ADD
+201 silly ADD
+202 silly ADD
+203 silly ADD
+204 silly ADD
+205 silly ADD
+206 silly ADD
+207 silly ADD
+208 silly ADD
+209 silly ADD
+210 silly ADD
+211 silly ADD
+212 silly ADD
+213 silly ADD
+214 silly ADD
+215 silly ADD
+216 silly ADD
+217 silly ADD
+218 silly ADD
+219 silly ADD
+220 silly ADD
+221 silly ADD
+222 silly ADD
+223 silly ADD
+224 silly ADD
+225 silly ADD
+226 silly ADD
+227 silly ADD
+228 silly ADD
+229 silly ADD
+230 silly ADD
+231 silly ADD
+232 silly ADD
+233 silly ADD
+234 silly ADD
+235 silly ADD
+236 verbose cwd /app/code
+237 verbose os Linux 6.12.27-fly
+238 verbose node v22.16.0
+239 verbose npm  v10.9.2
+240 verbose exit 0
+241 info ok
