@@ -1,4 +1,4 @@
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 import ImageWithBasePath from "../../../../../core/imageWithBasePath";
 import SCol8Chart from "./chart/scol8Chart";
 import SCol9Chart from "./chart/scol9Chart";
