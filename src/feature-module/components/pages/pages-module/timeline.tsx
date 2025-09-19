@@ -1,5 +1,5 @@
 import ImageWithBasePath from "../../../../core/imageWithBasePath";
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 
 const Timeline = () => {
   return (
