@@ -5,7 +5,7 @@ import {
   type DropResult,
 } from "@hello-pangea/dnd";
 import { useState } from "react";
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 import ImageWithBasePath from "../../../../../../core/imageWithBasePath";
 import { all_routes } from "../../../../../routes/all_routes";
 
