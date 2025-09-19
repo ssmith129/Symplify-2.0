@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 import ImageWithBasePath from "../../../../core/imageWithBasePath";
 
 import Lightbox from "yet-another-react-lightbox";
