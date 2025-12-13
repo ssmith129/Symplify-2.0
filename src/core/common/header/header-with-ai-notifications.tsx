@@ -38,11 +38,11 @@ interface HeaderWithAINotificationsProps {
 const HeaderWithAINotifications: React.FC<HeaderWithAINotificationsProps> = ({
   className = "",
   enableAnalytics = true,
-  aiConfig = {
-    enableSmartGrouping: true,
-    enablePredictiveActions: true,
-    enablePersonalizedTiming: true
-  }
+  // aiConfig = {
+  //   enableSmartGrouping: true,
+  //   enablePredictiveActions: true,
+  //   enablePersonalizedTiming: true
+  // }
 }) => {
   const dispatch = useDispatch();
   const themeSettings = useSelector((state: any) => state.theme.themeSettings);

@@ -4,8 +4,8 @@ import { Link } from "react-router";
 import AINotificationsFeed from './ai-notifications-feed';
 import NotificationDetailView from './notification-detail-view';
 import AINotificationSettings from './ai-notification-settings';
-import useAINotifications from '../../../../core/hooks/useAINotifications';
-import ImageWithBasePath from '../../../../../core/imageWithBasePath';
+import useAINotifications from '../../../../../../core/hooks/useAINotifications';
+import ImageWithBasePath from '../../../../../../core/imageWithBasePath';
 
 interface EnhancedNotificationsProps {
   userRole?: string;
@@ -35,18 +35,18 @@ const EnhancedNotifications: React.FC<EnhancedNotificationsProps> = ({
     updateSettings,
     recordUserAction,
     refreshNotifications,
-    getHighPriorityNotifications,
+    // getHighPriorityNotifications,
     getNotificationsByType,
     getNotificationsByCategory
   } = useAINotifications({
     settings: {
-      roleBasedFiltering: {
-        enabled: true,
-        userRoles: [userRole],
-        departmentFilter: department !== 'general' ? [department] : []
-      },
-      // Role-specific category weights
-      categoryWeights: getRoleBasedCategoryWeights(userRole)
+      maxNotifications: 50,
+      enableGrouping: true,
+      enableSmartPrioritization: true,
+      confidenceThreshold: 0.7,
+      autoProcessing: true,
+      refreshInterval: 30000,
+      enableAnalytics: true
     },
     autoRefresh: true,
     refreshInterval: 30000,
@@ -127,8 +127,6 @@ const EnhancedNotifications: React.FC<EnhancedNotificationsProps> = ({
         </div>
 
         <AINotificationSettings
-          settings={settings}
-          onUpdateSettings={handleSettingsUpdate}
           onClose={() => setCurrentView('feed')}
         />
       </div>
@@ -247,7 +245,7 @@ const EnhancedNotifications: React.FC<EnhancedNotificationsProps> = ({
                 <div className="d-flex align-items-center">
                   <i className="ti ti-clock text-info fs-20 me-2"></i>
                   <div>
-                    <div className="fw-bold text-info">{Math.round(notifications.reduce((acc, n) => acc + n.aiPriority, 0) / notifications.length || 0)}</div>
+                    <div className="fw-bold text-info">{Math.round(notifications.reduce((acc: number, n: any) => acc + n.aiPriority, 0) / notifications.length || 0)}</div>
                     <small className="text-muted">Avg Priority</small>
                   </div>
                 </div>
@@ -304,10 +302,8 @@ const EnhancedNotifications: React.FC<EnhancedNotificationsProps> = ({
       {/* Notifications Feed */}
       {notifications.length > 0 && (
         <AINotificationsFeed
-          notifications={notifications}
           onNotificationClick={handleNotificationClick}
           onNotificationAction={recordUserAction}
-          settings={settings}
         />
       )}
 

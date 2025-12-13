@@ -1,6 +1,6 @@
-import React, { useState, useEffect, useMemo } from 'react';
-import { Badge, DatePicker, Select, Slider, Switch, Tooltip, Popover, Checkbox, Button } from 'antd';
-import type { CheckboxValueType } from 'antd/es/checkbox/Group';
+import React, { useState, useMemo } from 'react';
+import { Badge, DatePicker, Select, Slider, Tooltip, Popover } from 'antd';
+import type { Dayjs } from 'dayjs';
 
 const { RangePicker } = DatePicker;
 const { Option } = Select;
@@ -12,7 +12,7 @@ interface FilterState {
   };
   timeframe: {
     preset: string;
-    custom: [Date | null, Date | null];
+    custom: [Dayjs | null, Dayjs | null];
   };
   department: string[];
   sender: string[];
@@ -471,8 +471,8 @@ const AIFilterControls: React.FC<FilterControlsProps> = ({
               <RangePicker
                 style={{ width: '100%', marginTop: '0.5rem' }}
                 value={filters.timeframe.custom}
-                onChange={(dates) => updateFilters({ 
-                  timeframe: { ...filters.timeframe, custom: dates }
+                onChange={(dates) => updateFilters({
+                  timeframe: { ...filters.timeframe, custom: dates || [null, null] }
                 })}
               />
             )}

@@ -83,7 +83,7 @@ const DoctorAIEnhancedMessages = () => {
     actionRequired: false
   });
   const [searchTerm, setSearchTerm] = useState('');
-  const [doctorProfile, setDoctorProfile] = useState({
+  const [doctorProfile] = useState({
     name: "Dr. Sarah Chen",
     specialty: "Cardiology",
     department: "Internal Medicine",
@@ -379,7 +379,7 @@ const DoctorAIEnhancedMessages = () => {
     }
     
     // Calculate medical insights
-    const totalUnread = mockDoctorConversations.reduce((sum, conv) => sum + conv.totalUnread, 0);
+    // const totalUnread = mockDoctorConversations.reduce((sum, conv) => sum + conv.totalUnread, 0);
     const emergencyCount = mockDoctorConversations.filter(conv => 
       conv.lastMessage.priority === 'life-threatening' || 
       conv.lastMessage.medicalCategory === 'patient-emergency'
@@ -743,7 +743,7 @@ const DoctorAIEnhancedMessages = () => {
                                     {conversation.lastMessage.patientInfo.criticalAlerts && (
                                       <div className="d-flex gap-1 mt-1">
                                         {conversation.lastMessage.patientInfo.criticalAlerts.slice(0, 2).map((alert, index) => (
-                                          <span key={`${selectedConversation.id}-clinical-flag-${index}`} className="badge bg-danger-transparent text-danger fs-10">
+                                          <span key={`${selectedConversation?.id || 'unknown'}-clinical-flag-${index}`} className="badge bg-danger-transparent text-danger fs-10">
                                             {alert}
                                           </span>
                                         ))}

@@ -1,8 +1,8 @@
-import React, { useState, useCallback, useEffect, useMemo } from 'react';
+import React, { useState, useCallback, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { Badge, Switch, Button, Skeleton } from 'antd';
 import ImageWithBasePath from '../../imageWithBasePath';
-import useAINotifications from '../../../feature-module/components/pages/application-modules/application/notifications/../../../../core/hooks/useAINotifications';
+import useAINotifications from '../../hooks/useAINotifications';
 import { all_routes } from '../../../feature-module/routes/all_routes';
 
 interface NotificationItemProps {
@@ -192,16 +192,16 @@ const EnhancedNotificationDropdown: React.FC<EnhancedNotificationDropdownProps> 
     dismissNotification,
     recordUserAction,
     refreshNotifications,
-    getHighPriorityNotifications,
     getNotificationsByType
   } = useAINotifications({
     settings: {
-      enabled: isAIEnabled,
-      roleBasedFiltering: {
-        enabled: true,
-        userRoles: [userRole],
-        departmentFilter: department !== 'general' ? [department] : []
-      }
+      maxNotifications: 50,
+      enableGrouping: true,
+      enableSmartPrioritization: true,
+      confidenceThreshold: 0.7,
+      autoProcessing: true,
+      refreshInterval: 30000,
+      enableAnalytics: true
     },
     autoRefresh: true,
     refreshInterval: 30000
@@ -442,9 +442,9 @@ const EnhancedNotificationDropdown: React.FC<EnhancedNotificationDropdownProps> 
                 <small className="text-muted">No notifications</small>
               </div>
             ) : (
-              displayNotifications.slice(0, 8).map((notification, index) => (
+              displayNotifications.slice(0, 8).map((notification: any, index: number) => (
                 <EnhancedNotificationItem
-                  key={notification.id || index}
+                  key={notification.id || `notification-${index}`}
                   notification={notification}
                   isAIEnabled={isAIEnabled}
                   onMarkRead={handleMarkRead}

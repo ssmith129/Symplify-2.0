@@ -49,8 +49,8 @@ interface DoctorEmailFilters {
 
 const DoctorAIEnhancedEmail = () => {
   const [showMore, setShowMore] = useState(false);
-  const [showMore2, setShowMore2] = useState(false);
-  const [showMore3, setShowMore3] = useState(false);
+  // const [showMore2, setShowMore2] = useState(false);
+  // const [showMore3, setShowMore3] = useState(false);
   const [selectedEmails, setSelectedEmails] = useState<Set<string>>(new Set());
   const [emails, setEmails] = useState<DoctorEmailMessage[]>([]);
   const [filters, setFilters] = useState<DoctorEmailFilters>({
@@ -62,7 +62,7 @@ const DoctorAIEnhancedEmail = () => {
     patientRelated: false,
     actionRequired: false
   });
-  const [doctorProfile, setDoctorProfile] = useState({
+  const [doctorProfile] = useState({
     name: "Dr. Sarah Chen",
     specialty: "Cardiology",
     department: "Internal Medicine",
@@ -326,8 +326,8 @@ const DoctorAIEnhancedEmail = () => {
   }, [emails, filters]);
 
   const handleToggle = () => setShowMore(prev => !prev);
-  const handleToggle2 = () => setShowMore2(prev => !prev);
-  const handleToggle3 = () => setShowMore3(prev => !prev);
+  // const handleToggle2 = () => setShowMore2(prev => !prev);
+  // const handleToggle3 = () => setShowMore3(prev => !prev);
 
   const getPriorityColor = (priority: string) => {
     switch (priority) {

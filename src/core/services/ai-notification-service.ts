@@ -3,6 +3,18 @@
  * Handles intelligent notification processing, prioritization, and grouping
  */
 
+export interface NotificationInput {
+  id: string;
+  title: string;
+  message: string;
+  avatar?: string;
+  timestamp: Date;
+  isRead: boolean;
+  type: 'appointment' | 'medical' | 'system' | 'urgent' | 'reminder';
+  sender: string;
+  metadata?: Record<string, any>;
+}
+
 interface NotificationData {
   id: string;
   title: string;
@@ -12,19 +24,14 @@ interface NotificationData {
   isRead: boolean;
   type: 'appointment' | 'medical' | 'system' | 'urgent' | 'reminder';
   sender: string;
-  metadata?: {
-    patientId?: string;
-    doctorId?: string;
-    priority?: number;
-    category?: string;
-    relatedTo?: string[];
-  };
+  metadata?: Record<string, any>;
 }
 
-interface AIEnhancedNotification extends NotificationData {
+export interface ProcessedNotification extends NotificationData {
   // AI enhancements
   aiPriority: number; // 1-5 scale (5 being highest)
   aiCategory: 'critical' | 'important' | 'routine' | 'informational';
+  category: 'critical' | 'important' | 'routine' | 'informational'; // Alias for aiCategory
   aiSummary?: string; // Shortened version for long notifications
   suggestedActions?: Array<{
     label: string;
@@ -42,6 +49,18 @@ interface AIEnhancedNotification extends NotificationData {
   confidence: number; // AI confidence score 0-1
 }
 
+export interface AIEnhancedNotification extends ProcessedNotification {}
+
+export interface AISettings {
+  maxNotifications: number;
+  enableGrouping: boolean;
+  enableSmartPrioritization: boolean;
+  confidenceThreshold: number;
+  autoProcessing: boolean;
+  refreshInterval: number;
+  enableAnalytics: boolean;
+}
+
 interface UserBehaviorData {
   averageResponseTime: { [key: string]: number };
   preferredCategories: string[];
@@ -54,10 +73,20 @@ export class AINotificationService {
   private userBehavior: UserBehaviorData;
   private isProcessing: boolean = false;
   private cache: Map<string, AIEnhancedNotification[]> = new Map();
+  private settings: AISettings;
 
   constructor() {
     // Initialize with default user behavior data
     this.userBehavior = this.loadUserBehaviorData();
+    this.settings = {
+      maxNotifications: 50,
+      enableGrouping: true,
+      enableSmartPrioritization: true,
+      confidenceThreshold: 0.7,
+      autoProcessing: true,
+      refreshInterval: 30000,
+      enableAnalytics: true
+    };
   }
 
   /**
@@ -411,9 +440,9 @@ export class AINotificationService {
    */
   private calculatePersonalizedTiming(notification: NotificationData) {
     const currentHour = new Date().getHours();
-    const isActiveHour = this.userBehavior.activeHours.includes(currentHour);
-    
-    const avgResponseTime = this.userBehavior.averageResponseTime[notification.type] || 60;
+    // const isActiveHour = this.userBehavior.activeHours.includes(currentHour);
+
+    // const avgResponseTime = this.userBehavior.averageResponseTime[notification.type] || 60;
     const userEngagement = this.userBehavior.clickThroughRates[notification.type] || 0.5;
 
     return {
@@ -542,17 +571,69 @@ export class AINotificationService {
   }
 
   /**
+   * Process single notification
+   */
+  processNotification(notification: NotificationInput): ProcessedNotification {
+    const enhanced = this.enhanceNotificationSync(notification);
+    return enhanced;
+  }
+
+  /**
+   * Process multiple notifications synchronously
+   */
+  processMultipleNotifications(notifications: NotificationInput[]): ProcessedNotification[] {
+    return notifications.map(notification => this.processNotification(notification));
+  }
+
+  /**
+   * Update AI settings
+   */
+  updateSettings(newSettings: Partial<AISettings>): void {
+    this.settings = { ...this.settings, ...newSettings };
+  }
+
+  /**
+   * Get current settings
+   */
+  getSettings(): AISettings {
+    return { ...this.settings };
+  }
+
+  /**
+   * Synchronous version of enhance notification for immediate processing
+   */
+  private enhanceNotificationSync(notification: NotificationInput): ProcessedNotification {
+    const aiPriority = this.calculatePriority(notification);
+    const aiCategory = this.categorizeNotification(notification);
+    const aiSummary = this.generateSummary(notification.message);
+    const suggestedActions = this.generateSuggestedActions(notification);
+    const personalizedTiming = this.calculatePersonalizedTiming(notification);
+    const confidence = this.calculateConfidence(notification);
+
+    return {
+      ...notification,
+      aiPriority,
+      aiCategory,
+      category: aiCategory,
+      aiSummary,
+      suggestedActions,
+      personalizedTiming,
+      confidence
+    };
+  }
+
+  /**
    * Public methods for analytics and user feedback
    */
   recordUserAction(notificationId: string, action: string, timestamp: Date = new Date()) {
     // Record user action for learning
     console.log(`User action recorded: ${action} on ${notificationId} at ${timestamp}`);
-    
+
     // In production, this would update the ML model
     this.updateUserBehavior(notificationId, action, timestamp);
   }
 
-  private updateUserBehavior(notificationId: string, action: string, timestamp: Date) {
+  private updateUserBehavior(_notificationId: string, _action: string, _timestamp: Date) {
     // Update user behavior patterns based on actions
     // This would normally integrate with an ML service
   }

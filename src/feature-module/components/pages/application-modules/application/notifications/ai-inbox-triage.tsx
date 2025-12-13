@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { Link } from 'react-router';
 import ImageWithBasePath from '../../../../../../core/imageWithBasePath';
-import { Badge, Progress, Card, Statistic, Timeline, Tabs, Alert, Empty, Spin } from 'antd';
+import { Badge, Progress, Card, Statistic, Tabs, Alert, Empty, Spin } from 'antd';
 import { aiNotificationService } from '../../../../../../core/services/ai-notification-service';
-import type { AIEnhancedNotification } from '../../../../../../core/services/ai-notification-service';
+import type { ProcessedNotification } from '../../../../../../core/services/ai-notification-service';
 
-const { TabPane } = Tabs;
+// const { TabPane } = Tabs;
 
 interface TriageMetrics {
   totalMessages: number;
@@ -27,11 +27,11 @@ interface TriageFilters {
 
 const AIInboxTriage: React.FC = () => {
   // State Management
-  const [notifications, setNotifications] = useState<AIEnhancedNotification[]>([]);
+  const [notifications, setNotifications] = useState<ProcessedNotification[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [selectedNotifications, setSelectedNotifications] = useState<Set<string>>(new Set());
-  const [activeTab, setActiveTab] = useState('dashboard');
+  // const [activeTab, setActiveTab] = useState('dashboard');
   const [triageMetrics, setTriageMetrics] = useState<TriageMetrics>({
     totalMessages: 0,
     criticalCount: 0,
@@ -613,7 +613,7 @@ const AIInboxTriage: React.FC = () => {
                               <span className="fs-12 text-muted fw-medium">AI Recommended Actions:</span>
                             </div>
                             <div className="d-flex gap-2 flex-wrap">
-                              {notification.suggestedActions.map((action, index) => (
+                              {notification.suggestedActions.map((action: any, index: number) => (
                                 <button
                                   key={`${notification.id}-action-${action.action}-${index}`}
                                   className={`btn btn-${action.type} btn-sm`}

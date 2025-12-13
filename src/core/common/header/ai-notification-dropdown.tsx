@@ -324,7 +324,7 @@ const AINotificationDropdown: React.FC<AINotificationDropdownProps> = ({
             {isAIEnabled && notification.suggestedActions && notification.suggestedActions.length > 0 && (
               <div className="ai-actions mb-2">
                 <div className="d-flex gap-1 flex-wrap">
-                  {notification.suggestedActions.slice(0, 2).map((action, actionIndex) => (
+                  {notification.suggestedActions.slice(0, 2).map((action: any, actionIndex: number) => (
                     <button
                       key={actionIndex}
                       className={`btn btn-sm btn-${action.type} ai-suggested-action`}

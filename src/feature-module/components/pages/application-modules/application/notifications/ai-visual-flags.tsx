@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Badge, Tooltip, Progress, Modal, Rate } from 'antd';
-import type { AIEnhancedNotification } from '../../../../../../core/services/ai-notification-service';
+import { Badge, Tooltip, Modal } from 'antd';
+import type { ProcessedNotification } from '../../../../../../core/services/ai-notification-service';
 
 interface FlagConfig {
   id: string;
@@ -31,11 +31,11 @@ interface FlagConfig {
 }
 
 interface VisualFlagsProps {
-  notification: AIEnhancedNotification;
+  notification: ProcessedNotification;
   compact?: boolean;
   showTooltips?: boolean;
   customFlags?: FlagConfig[];
-  onFlagClick?: (flag: FlagConfig, notification: AIEnhancedNotification) => void;
+  onFlagClick?: (flag: FlagConfig, notification: ProcessedNotification) => void;
   size?: 'small' | 'medium' | 'large';
 }
 
@@ -52,7 +52,7 @@ const AIVisualFlags: React.FC<VisualFlagsProps> = ({
   const [selectedFlag, setSelectedFlag] = useState<FlagConfig | null>(null);
 
   // Default flag configurations
-  const defaultFlags: FlagConfig[] = [
+  const defaultFlags: FlagConfig[] = useMemo(() => [
     {
       id: 'emergency',
       name: 'Emergency',
@@ -219,10 +219,10 @@ const AIVisualFlags: React.FC<VisualFlagsProps> = ({
         iconEffect: 'heartbeat'
       }
     }
-  ];
+  ], []);
 
   // Combine default and custom flags
-  const allFlags = [...defaultFlags, ...customFlags];
+  const allFlags = useMemo(() => [...defaultFlags, ...customFlags], [defaultFlags, customFlags]);
 
   // Determine which flags apply to this notification
   useEffect(() => {
@@ -315,7 +315,7 @@ const AIVisualFlags: React.FC<VisualFlagsProps> = ({
     <div className={`ai-visual-flags ${getSizeClass()} ${compact ? 'flags-compact' : ''}`}>
       {/* Flag Icons */}
       <div className="flag-icons d-flex align-items-center gap-1">
-        {activeFlags.map((flag, index) => {
+        {activeFlags.map((flag, _index) => {
           const flagElement = (
             <div
               key={flag.id}
@@ -477,7 +477,7 @@ const AIVisualFlags: React.FC<VisualFlagsProps> = ({
 
 // Flag Summary Component - shows all flags for a set of notifications
 interface FlagSummaryProps {
-  notifications: AIEnhancedNotification[];
+  notifications: ProcessedNotification[];
   title?: string;
 }
 
